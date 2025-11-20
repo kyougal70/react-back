@@ -44,10 +44,10 @@ export class AppController {
     return x.countryCode;
   }
 
-  // @Cron('30 * * * * *')
-  // continueRequest() {
-  //   axios('http://localhost:3001');
-  // }
+  @Cron('30 * * * * *')
+  continueRequest() {
+    axios('https://react-back-qd49.onrender.com');
+  }
 
   // @Get('listUsers')
   // getListUsers(@Res() res: Response) {
