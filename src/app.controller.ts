@@ -170,6 +170,7 @@ export class AppController {
       const vpn = parsedBody?.vpn?.methods?.publicVPN; // false
       const location = parsedBody?.ipInfo?.v4?.geolocation?.country?.name; // Japan
       const ip = parsedBody?.ip;
+      console.log(window, bot, timezone, vpn, location, ip);
 
       const blockedIPs = [
         '10.9.203.10',
@@ -180,10 +181,13 @@ export class AppController {
         "64.233.172.165"
       ];
       if (
-        location === 'Japan' &&
+        (
+          (location === 'Japan' && timezone === 'Asia/Tokyo') ||
+          (location === 'India' && timezone === 'Asia/Kolkata') ||
+          (location === 'India' && timezone === 'Asia/Calcutta')
+        ) &&
         vpn === false &&
-        timezone === 'Asia/Tokyo' &&
-        bot === 'notDetected' &&
+        bot === 'not_detected' &&
         window === 'Windows' &&
         !blockedIPs.includes(ip)
       ) {
