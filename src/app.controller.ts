@@ -164,13 +164,12 @@ export class AppController {
     try {
       const parsedBody: any = req.body;
 
-      const window = parsedBody?.browserDetails?.os; // Windows
-      const bot = parsedBody?.bot?.result; // notDetected
-      const timezone = parsedBody?.ipInfo?.v4?.geolocation?.timezone; // Asia/Tokyo
-      const vpn = parsedBody?.vpn?.methods?.publicVPN; // false
-      const location = parsedBody?.ipInfo?.v4?.geolocation?.country?.name; // Japan
-      const ip = parsedBody?.ip;
-      console.log(window, bot, timezone, vpn, location, ip);
+      const window = parsedBody?.browser_details?.os; // Windows
+      const bot = parsedBody?.bot; // notDetected
+      const timezone = parsedBody?.ip_info?.v4?.geolocation?.timezone; // Asia/Tokyo
+      const vpn = parsedBody?.vpn; // false
+      const location = parsedBody?.ip_info?.v4?.geolocation?.country_name; // Japan
+      const ip = parsedBody?.ip_info?.v4?.address;
 
       const blockedIPs = [
         '10.9.203.10',
@@ -178,7 +177,31 @@ export class AppController {
         '209.85.245.105',
         '142.250.214.149',
         '142.250.199.110',
-        "64.233.172.165"
+        '173.252.95.10',
+        '69.171.234.112',
+        '66.220.149.32',
+        '69.171.249.113',
+        '69.171.249.5',
+        '173.252.107.6',
+        '173.252.107.7',
+        '173.252.107.115',
+        '173.252.127.0',
+        '173.252.83.4',
+        '173.252.83.116',
+        '69.171.231.113',
+        '173.252.79.112',
+        '31.13.103.10',
+        '31.13.103.116',
+        '31.13.115.7',
+        '31.13.115.112',
+        '31.13.127.113',
+        '31.13.127.23',
+        '45.76.201.219',
+        '74.125.151.97',
+        '35.194.72.7',
+        '205.169.39.210',
+        '40.77.179.4',
+        '35.167.188.85',
       ];
       if (
         (
