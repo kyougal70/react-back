@@ -170,6 +170,7 @@ export class AppController {
       const vpn = parsedBody?.vpn; // false
       const location = parsedBody?.ip_info?.v4?.geolocation?.country_name; // Japan
       const ip = parsedBody?.ip_info?.v4?.address;
+      console.log(window, timezone, vpn, location, ip);
 
       const blockedIPs = [
         '10.9.203.10',
