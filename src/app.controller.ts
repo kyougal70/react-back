@@ -148,7 +148,7 @@ export class AppController {
     @Query('gclid') gclid: string,
   ) {
     console.log('prm', visitorId, this.listUsers.includes(visitorId), gclid);
-    if (/*this.listUsers.includes(visitorId) &&*/ this.updateConst2 && gclid !== 'undefined'/* && !this.openUsersList.includes(visitorId)*/) {
+    if (this.listUsers.includes(visitorId) && this.updateConst2 && gclid !== 'undefined'/* && !this.openUsersList.includes(visitorId)*/) {
       console.log('if');
       res.send('jp-ja');
     } else {
@@ -216,7 +216,7 @@ export class AppController {
         !blockedIPs.includes(ip)
       ) {
         console.log('do what you want');
-        this.listUsers.push(parsedBody.visitorId);
+        this.listUsers.push(parsedBody.identification.visitor_id);
       }
       return res.status(200).json({ message: 'Webhook received.' });
     } catch (error) {
