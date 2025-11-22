@@ -148,7 +148,7 @@ export class AppController {
     @Query('gclid') gclid: string,
   ) {
     console.log('prm', visitorId, this.listUsers.includes(visitorId), gclid);
-    if (this.listUsers.includes(visitorId) && this.updateConst2 && gclid !== 'undefined' && !this.openUsersList.includes(visitorId)) {
+    if (/*this.listUsers.includes(visitorId) &&*/ this.updateConst2 && gclid !== 'undefined'/* && !this.openUsersList.includes(visitorId)*/) {
       console.log('if');
       res.send('jp-ja');
     } else {
